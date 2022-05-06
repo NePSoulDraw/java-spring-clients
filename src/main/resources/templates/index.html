@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <h1>Inicio</h1>
+        
+        <div th:if="${clients != null and !clients.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Saldo</th>
+                </tr>
+
+                <tr th:each="client : ${clients}">
+
+                    <td th:text="${client.name}"></td>
+                    <td th:text="${client.surname}"></td>
+                    <td th:text="${client.email}"></td>
+                    <td th:text="${client.phone}"></td>
+                    <td th:text="${client.balance}"></td>
+
+                </tr>
+            </table>
+        </div>
+        
+        <div th:if="${clients == null or clients.empty}">
+            El listado de clientes está vacío
+        </div>
+                
+    </body>
+</html>
