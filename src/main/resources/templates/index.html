@@ -9,6 +9,10 @@
         
         <h1>Inicio</h1>
         
+        <a th:href="@{/add}">
+            Agregar cliente
+        </a>
+        
         <div th:if="${clients != null and !clients.empty}">
             <table border="1">
                 <tr>
@@ -17,6 +21,8 @@
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Saldo</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
 
                 <tr th:each="client : ${clients}">
@@ -26,6 +32,12 @@
                     <td th:text="${client.email}"></td>
                     <td th:text="${client.phone}"></td>
                     <td th:text="${client.balance}"></td>
+                    <td>
+                        <a th:href="@{/edit/} + ${client.clientId}" th:text="Editar"></a>
+                    </td>
+                    <td>
+                        <a th:href="@{/delete(clientId=${client.clientId})}" th:text="Eliminar"></a>
+                    </td>
 
                 </tr>
             </table>

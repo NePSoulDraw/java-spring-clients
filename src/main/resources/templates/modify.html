@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos de cliente</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+
+        <h1>Datos de cliente</h1>
+        <a th:href="@{/}">Volver a inicio</a>
+        
+        <br />
+        <br />
+        
+        <form th:action="@{/save}" method="POST" th:object="${client}">
+            
+            <input type="hidden" name="clientId" th:field="*{clientId}" />
+            
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" th:field="*{name}" />
+            
+            <br />
+            
+            <label for="surname">Apellido:</label>
+            <input type="text" name="surname" th:field="*{surname}" />
+            
+            <br />
+            
+            <label for="email">Email:</label>
+            <input type="email" name="email" th:field="*{email}" />
+            
+            <br />
+            
+            <label for="phone">Teléfono:</label>
+            <input type="number" name="phone" th:field="*{phone}" />
+            
+            <br />
+            
+            <label for="balance">Saldo:</label>
+            <input type="number" name="balance" th:field="*{balance}" />
+            
+            <input type="submit" name="save" value="Guardar" /> 
+            
+        </form>
+        
+    </body>
+</html>

@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 @Slf4j
@@ -29,6 +31,42 @@ public class IndexController {
         
         return "index";
          
+    }
+    
+    @GetMapping("/add")
+    public String add(Client client){
+        
+        return "modify";
+        
+    }
+    
+    @PostMapping("/save")
+    public String save(Client client){
+        
+        clientService.save(client);
+        
+        return "redirect:/";
+        
+    }
+    
+    @GetMapping("edit/{clientId}")
+    public String edit(Client client, Model model){
+        
+        client = clientService.findClient(client);
+        
+        model.addAttribute("client", client);
+        
+        return "modify";
+        
+    }
+    
+    @GetMapping("delete")
+    public String delete(Client client){
+        
+        clientService.delete(client);
+        
+        return "redirect:/";
+        
     }
     
 }
