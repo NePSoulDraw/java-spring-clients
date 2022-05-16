@@ -9,8 +9,8 @@
     <body>
 
         <header th:replace="layout/layout :: header"></header>
-        <h2>Datos de cliente</h2>
-        <a th:href="@{/}">Volver a inicio</a>
+        <h2>[[#{client.data}]]</h2>
+        <a th:href="@{/}">[[#{action.return}]]</a>
         
         <br />
         <br />
@@ -19,30 +19,30 @@
             
             <input type="hidden" name="clientId" th:field="*{clientId}" />
             
-            <label for="name">Nombre:</label>
+            <label for="name">[[#{client.name}]]</label>
             <input type="text" name="name" th:field="*{name}" />
             
             <br />
             
-            <label for="surname">Apellido:</label>
+            <label for="surname">[[#{client.surname}]]</label>
             <input type="text" name="surname" th:field="*{surname}" />
 
             <br />
             
-            <label for="email">Email:</label>
+            <label for="email">[[#{client.email}]]</label>
             <input type="email" name="email" th:field="*{email}" />
 
             <br />
             
-            <label for="phone">Teléfono:</label>
+            <label for="phone">[[#{client.phone}]]</label>
             <input type="number" name="phone" th:field="*{phone}" />
 
             <br />
             
-            <label for="balance">Saldo:</label>
+            <label for="balance">[[#{client.balance}]]</label>
             <input type="number" name="balance" th:field="*{balance}" />
             
-            <input type="submit" name="save" value="Guardar" /> 
+            <input type="submit" name="save" th:value="#{action.save}" /> 
             
         </form>
         

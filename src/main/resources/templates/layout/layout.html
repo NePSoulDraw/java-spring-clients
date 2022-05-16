@@ -9,11 +9,16 @@
     <body>
         
         <header th:fragment="header">
-            <h1>Control de clientes</h1>
+            <h1 th:text="#{layout.title}">Título</h1>
         </header>
         
         <footer th:fragment="footer">
-            <p>Desarrollado por Ismael Ahumada</p>
+            <div>
+                <br />
+                <a th:href="@{/(lang=es)}">ES</a> |
+                <a th:href="@{/(lang=en)}">EN</a> |
+                <span>[[#{layout.footer}]]</span>
+            </div>
         </footer>
         
     </body>
